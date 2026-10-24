@@ -1,0 +1,21 @@
+name: NovaGuardWORLD
+version: 1.1.0
+main: dev.hokagydev.novaguard.NovaGuardWorld
+api-version: '1.21'
+author: hokagydev
+description: Standalone region protection with SQLite.
+commands:
+  novaguard:
+    description: NovaGuardWORLD main command
+    aliases: [ng, ngw]
+    usage: /ng help
+permissions:
+  novaguard.admin:
+    description: Administrative region management and reload
+    default: op
+  novaguard.claim:
+    description: Create and manage own regions
+    default: true
+  novaguard.bypass:
+    description: Bypass all region protection
+    default: op

@@ -1,0 +1,35 @@
+plugins { id 'java' }
+
+group = 'dev.hokagydev'
+version = '1.1.0'
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
+    implementation 'org.xerial:sqlite-jdbc:3.49.1.0'
+}
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+tasks.named('jar') { archiveClassifier = 'plain' }
+tasks.register('shadowJar', Jar) {
+    archiveBaseName = 'NovaGuardWORLD'
+    archiveVersion = project.version
+    archiveClassifier = ''
+    from sourceSets.main.output
+    dependsOn configurations.runtimeClasspath
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+    manifest { attributes('Implementation-Title': 'NovaGuardWORLD', 'Implementation-Version': project.version) }
+}
+tasks.named('build') { dependsOn tasks.named('shadowJar') }

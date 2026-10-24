@@ -1,0 +1,47 @@
+prefix: '<gradient:#38BDF8:#A78BFA><bold>NovaGuardWORLD</bold></gradient> <dark_gray>»</dark_gray> '
+no-permission: <#FF5C7A>У тебя недостаточно прав.
+player-only: <#FF5C7A>Эта команда доступна только игроку.
+help: '<aqua>Команды: <white>/ng wand, pos1, pos2, claim, auto, delete, info, list,
+  trust, untrust, flag, flags, priority, greeting, farewell, view, reload'
+reloaded: <green>Конфигурация и переводы перезагружены.
+wand: <green>Инструмент выдан. ЛКМ — точка 1, ПКМ — точка 2.
+point-set: <green>Точка {point} установлена.
+claim-created: <green>Регион <white>{name}</white> успешно создан.
+usage-claim: '<red>Использование: /ng claim <название>'
+need-selection: <red>Сначала выдели две точки инструментом или командами /ng pos1
+  и /ng pos2.
+different-worlds: <red>Точки должны находиться в одном мире.
+invalid-name: '<red>Название: 1–32 символа, латиница, цифры, _ или -.'
+too-large: '<red>Регион слишком большой. Объём: {size}.'
+claim-limit: <red>Достигнут лимит регионов.
+name-exists: <red>Регион с таким названием уже существует в этом мире.
+overlap: <red>Регион пересекается с другим регионом.
+invalid-radius: <red>Радиус должен быть числом от 1 до 64.
+auto-ready: '<green>Область вокруг тебя выделена. Создай её: /ng claim <название>.'
+list-header: '<aqua>Твои регионы: <white>{count}'
+list-entry: '<gray>• <white>{name} <dark_gray>(мир: {world})'
+no-claim: <red>Регион не найден в этой точке.
+info: '<aqua>Регион <white>{name}</white> | Владелец: <white>{owner}</white> | Мир:
+  <white>{world}</white> | Участников: <white>{members}</white> | Приоритет: <white>{priority}'
+usage-delete: '<red>Использование: /ng delete <название>'
+not-found: <red>Регион не найден.
+not-owner: <red>Ты не владелец этого региона.
+deleted: <green>Регион <white>{name}</white> удалён.
+usage-player: '<red>Использование: /ng trust|untrust <игрок>'
+owner-trust: <red>Владелец уже имеет полный доступ.
+trusted: <green>Игрок {player} добавлен в участники.
+untrusted: <green>Игрок {player} удалён из участников.
+usage-flag: '<red>Использование: /ng flag <название> <флаг> <allow|deny>'
+invalid-flag: <red>Неизвестный флаг или значение. Используй /ng flags.
+flag-set: '<green>Флаг {flag} установлен: {value}.'
+flags-list: '<aqua>Доступные флаги: <white>{flags}'
+usage-priority: '<red>Использование: /ng priority <число> (находясь в своём регионе)'
+invalid-number: <red>Ожидалось целое число.
+priority-set: '<green>Приоритет региона установлен: {value}.'
+message-set: <green>Сообщение региона сохранено.
+view-off: <gray>Отображение границ выключено.
+view-on: <aqua>Границы региона будут показаны некоторое время.
+protected: <red>Это действие запрещено защитой региона.
+unknown-command: <red>Неизвестная команда. Используй /ng help.
+overlap-warning: <yellow>Область пересекается с другим регионом. Доступ определяется
+  приоритетом.

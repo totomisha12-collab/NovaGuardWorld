@@ -1,0 +1,46 @@
+prefix: '<gradient:#38BDF8:#A78BFA><bold>NovaGuardWORLD</bold></gradient> <dark_gray>»</dark_gray> '
+no-permission: <#FF5C7A>You do not have permission.
+player-only: <#FF5C7A>This command can only be used by a player.
+help: '<aqua>Commands: <white>/ng wand, pos1, pos2, claim, auto, delete, info, list,
+  trust, untrust, flag, flags, priority, greeting, farewell, view, reload'
+reloaded: <green>Configuration and translations reloaded.
+wand: <green>Selection tool given. Left-click = point 1, right-click = point 2.
+point-set: <green>Point {point} selected.
+claim-created: <green>Region <white>{name}</white> created successfully.
+usage-claim: '<red>Usage: /ng claim <name>'
+need-selection: <red>Select two points with the wand or /ng pos1 and /ng pos2 first.
+different-worlds: <red>Both points must be in the same world.
+invalid-name: '<red>Name must be 1–32 chars: letters, numbers, _ or -.'
+too-large: '<red>Region is too large. Volume: {size}.'
+claim-limit: <red>You have reached your region limit.
+name-exists: <red>A region with that name already exists in this world.
+overlap: <red>This region overlaps another region.
+invalid-radius: <red>Radius must be a number from 1 to 64.
+auto-ready: <green>Area selected around you. Create it with /ng claim <name>.
+list-header: '<aqua>Your regions: <white>{count}'
+list-entry: '<gray>• <white>{name} <dark_gray>(world: {world})'
+no-claim: <red>No region found here.
+info: '<aqua>Region <white>{name}</white> | Owner: <white>{owner}</white> | World:
+  <white>{world}</white> | Members: <white>{members}</white> | Priority: <white>{priority}'
+usage-delete: '<red>Usage: /ng delete <name>'
+not-found: <red>Region not found.
+not-owner: <red>You do not own this region.
+deleted: <green>Region <white>{name}</white> deleted.
+usage-player: '<red>Usage: /ng trust|untrust <player>'
+owner-trust: <red>The owner already has full access.
+trusted: <green>Player {player} added to the member list.
+untrusted: <green>Player {player} removed from the member list.
+usage-flag: '<red>Usage: /ng flag <region> <flag> <allow|deny>'
+invalid-flag: <red>Unknown flag or value. Use /ng flags.
+flag-set: <green>Flag {flag} set to {value}.
+flags-list: '<aqua>Available flags: <white>{flags}'
+usage-priority: '<red>Usage: /ng priority <number> (stand inside your region)'
+invalid-number: <red>Expected an integer.
+priority-set: <green>Region priority set to {value}.
+message-set: <green>Region message saved.
+view-off: <gray>Boundary preview disabled.
+view-on: <aqua>Region boundaries will be displayed for a short time.
+protected: <red>This action is blocked by region protection.
+unknown-command: <red>Unknown command. Use /ng help.
+overlap-warning: <yellow>This region overlaps another region. Effective protection
+  is determined by priority.

@@ -1,0 +1,14 @@
+settings:
+  locale: ru
+  wand-material: GOLDEN_AXE
+  max-claim-area: 100000
+  max-claims-per-player: 5
+  default-auto-claim-radius: 8
+  particle-view-seconds: 10
+  particle-view-spacing: 2
+  protect-entity-interactions: true
+  protect-containers: true
+  deny-explosions-in-claims: true
+  deny-fire-spread-in-claims: true
+database:
+  file: claims.db
