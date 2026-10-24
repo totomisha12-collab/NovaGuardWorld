@@ -104,7 +104,7 @@ public final class NovaGuardWorld extends JavaPlugin implements Listener, Comman
         if(e.getEntity() instanceof Player victim){
             Claim c=store.at(victim.getLocation());
             EntityType source=e.getDamager().getType();
-            if(c!=null&&!flag(c,"explosions",false)&&Set.of(EntityType.CREEPER,EntityType.TNT,EntityType.MINECART_TNT,EntityType.FIREBALL,EntityType.SMALL_FIREBALL,EntityType.WITHER_SKULL).contains(source)){e.setCancelled(true);return;}
+            if(c!=null&&!flag(c,"explosions",false)&&Set.of(EntityType.CREEPER,EntityType.TNT,EntityType.TNT_MINECART,EntityType.FIREBALL,EntityType.SMALL_FIREBALL,EntityType.WITHER_SKULL).contains(source)){e.setCancelled(true);return;}
             Player attacker=null;
             if(e.getDamager() instanceof Player p)attacker=p;
             else if(e.getDamager() instanceof Projectile pr&&pr.getShooter() instanceof Player p)attacker=p;
@@ -115,7 +115,7 @@ public final class NovaGuardWorld extends JavaPlugin implements Listener, Comman
         }
     }
     @EventHandler public void entityInteract(PlayerInteractEntityEvent e){if(!getConfig().getBoolean("settings.protect-entity-interactions",true))return;if(!can(e.getPlayer(),e.getRightClicked().getLocation(),"interact")){e.setCancelled(true);deny(e.getPlayer());}}
-    @EventHandler public void explode(EntityExplodeEvent e){if(!getConfig().getBoolean("settings.deny-explosions-in-claims",true))return;boolean tnt=e.getEntityType()==EntityType.TNT||e.getEntityType()==EntityType.MINECART_TNT;e.blockList().removeIf(b->{Claim c=store.at(b.getLocation());return c!=null&&!flag(c,tnt?"tnt":"explosions",false);});}
+    @EventHandler public void explode(EntityExplodeEvent e){if(!getConfig().getBoolean("settings.deny-explosions-in-claims",true))return;boolean tnt=e.getEntityType()==EntityType.TNT||e.getEntityType()==EntityType.TNT_MINECART;e.blockList().removeIf(b->{Claim c=store.at(b.getLocation());return c!=null&&!flag(c,tnt?"tnt":"explosions",false);});}
     @EventHandler public void blockExplode(BlockExplodeEvent e){if(!getConfig().getBoolean("settings.deny-explosions-in-claims",true))return;e.blockList().removeIf(b->{Claim c=store.at(b.getLocation());return c!=null&&!flag(c,"explosions",false);});}
     @EventHandler public void burn(BlockBurnEvent e){Claim c=store.at(e.getBlock().getLocation());if(c!=null&&!flag(c,"fire",false)&&getConfig().getBoolean("settings.deny-fire-spread-in-claims",true))e.setCancelled(true);}
     @EventHandler public void ignite(BlockIgniteEvent e){Claim c=store.at(e.getBlock().getLocation());if(c!=null&&!flag(c,"fire",false)&&getConfig().getBoolean("settings.deny-fire-spread-in-claims",true))e.setCancelled(true);}
@@ -125,7 +125,6 @@ public final class NovaGuardWorld extends JavaPlugin implements Listener, Comman
     @EventHandler public void fluid(BlockFromToEvent e){Claim from=store.at(e.getBlock().getLocation()),to=store.at(e.getToBlock().getLocation());if(from!=to&&((from!=null&&!flag(from,"interact",false))||(to!=null&&!flag(to,"interact",false))))e.setCancelled(true);}
     @EventHandler public void spread(BlockSpreadEvent e){Claim c=store.at(e.getBlock().getLocation());if(c!=null&&!flag(c,"fire",false)&&e.getSource().getType()==Material.FIRE)e.setCancelled(true);}
     @EventHandler public void hanging(HangingBreakByEntityEvent e){if(e.getRemover() instanceof Player p&&!can(p,e.getEntity().getLocation(),"build"))e.setCancelled(true);}
-    @EventHandler public void hangingPlace(HangingPlaceEvent e){if(!can(e.getPlayer(),e.getEntity().getLocation(),"build"))e.setCancelled(true);}
     @EventHandler public void vehicle(VehicleDestroyEvent e){if(e.getAttacker() instanceof Player p&&!can(p,e.getVehicle().getLocation(),"build"))e.setCancelled(true);}
     @EventHandler public void dispenser(BlockDispenseEvent e){
         Claim c=store.at(e.getBlock().getLocation());
